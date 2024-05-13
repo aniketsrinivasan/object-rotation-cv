@@ -4,39 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="912f84f8-fa0a-4e2c-a24b-a967663dccf0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/rotationTask.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/template_images/screenshot_2024-05-02_17-12-17.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/template_images/screenshot_2024-05-02_17-18-27.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/template_images/screenshot_2024-05-02_17-22-50.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/test_images/screenshot_2024-05-02_17-11-22.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/test_images/screenshot_2024-05-02_17-12-08.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/test_images/screenshot_2024-05-02_17-12-30.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/test_images/screenshot_2024-05-02_17-12-40.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/test_images/screenshot_2024-05-02_17-12-49.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/test_images/screenshot_2024-05-02_17-18-41.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/test_images/screenshot_2024-05-02_17-18-47.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/test_images/screenshot_2024-05-02_17-18-55.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/test_images/screenshot_2024-05-02_17-19-10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/test_images/screenshot_2024-05-02_17-19-21.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/test_images/screenshot_2024-05-02_17-23-01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/test_images/screenshot_2024-05-02_17-23-09.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/test_images/screenshot_2024-05-02_17-23-22.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/test_images/screenshot_2024-05-02_17-23-31.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/test_images/screenshot_2024-05-02_17-23-39.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rotation_inference.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/image_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/model_utils.py" afterDir="false" />
+    <list default="true" id="912f84f8-fa0a-4e2c-a24b-a967663dccf0" name="Changes" comment="Initial commit.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,12 +72,25 @@
       <option name="presentableId" value="Default" />
       <updated>1715519376603</updated>
       <workItem from="1715519379055" duration="1000" />
-      <workItem from="1715600770891" duration="19849000" />
+      <workItem from="1715600770891" duration="20823000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial commit.">
+      <option name="closed" value="true" />
+      <created>1715624069522</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715624069523</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/rotationTask$main.coverage" NAME="main Coverage Results" MODIFIED="1715623552210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

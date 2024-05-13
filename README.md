@@ -9,6 +9,9 @@ currently organized repository.
 Thanks, Puru, for this challenge!
 
 ## How to run the program:
+*Note*: To understand the logic behind the program (and my thought process in creating it), I would recommend seeing
+the `brainstorming.png` image found in the repository.
+
 1) Use `pip install -r /path/to/requirements.txt` to install the necessary packages to run the program.
 2) In `main.py`, change the constants under "FOR USER TO MODIFY" according to the instructions provided.
 3) Run the program either using `python3 main.py` or using the Run configuration in your editor.
