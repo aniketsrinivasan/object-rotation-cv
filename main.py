@@ -7,7 +7,7 @@ import cv2 as cv
 # ~~~~~~~~~~~~~~~~ FOR USER TO MODIFY ~~~~~~~~~~~~~~~~
 # Change the image paths here to the two images used:
 IMG_PATH_1 = "images/template_images/screenshot_2024-05-02_17-22-50.jpg"
-IMG_PATH_2 = "images/test_images/screenshot_2024-05-02_17-23-01.jpg"
+IMG_PATH_2 = "images/test_images/screenshot_2024-05-02_17-23-22.jpg"
 
 # If you would like the result saved into the "results" directory (recommended):
 SAVE_RESULTS = True
@@ -108,23 +108,36 @@ def main(path1, path2):
     image1 = cv.imread(IMG_PATH_1)
     image2 = cv.imread(IMG_PATH_2)
 
+    # Drawing the rectangle, adding the angle to the image:
     cv.rectangle(image1,
               (bbox1[0], bbox1[1]),
               (bbox1[0]+bbox1[2], bbox1[1]+bbox1[3]),
               color=(255, 0, 0),
               thickness=3)
+    cv.putText(image1,
+               f"Initial image. Rotation estimate: {best_angle}",
+               (50, 60), cv.FONT_HERSHEY_SIMPLEX,
+               1.5, (255, 255, 255), 5)
+
     cv.rectangle(image2,
                  (bbox2[0], bbox2[1]),
                  (bbox2[0]+bbox2[2], bbox2[1]+bbox2[3]),
                  color=(255, 0, 0),
                  thickness=3)
+    cv.putText(image2,
+               f"Second image. Rotation estimate: {best_angle}",
+               (50, 60), cv.FONT_HERSHEY_SIMPLEX,
+               1.5, (255, 255, 255), 5)
 
+    # Displaying the image:
     plt.imshow(image1, cmap="gray")
     plt.title("Initial object with identified bounding box")
     plt.show()
 
-    cv.imwrite("results/result1.jpg", image1)
-    cv.imwrite("results/result2.jpg", image2)
+    # Saving the file(s):
+    if SAVE_RESULTS:
+        cv.imwrite("results/result1.jpg", image1)
+        cv.imwrite("results/result2.jpg", image2)
 
     # Returning image with bounding box, and angle of rotation:
     return image1, best_angle
