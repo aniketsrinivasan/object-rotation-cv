@@ -2,6 +2,9 @@ import cv2 as cv
 import numpy as np
 import matplotlib.pyplot as plt
 
+METHOD_KP = 1
+METHOD_CIRC = 2
+
 
 # read_images(img1, img2) consumes paths to two images, reads them, and applies augmentation
 #   and processing steps. Returns processed images.
@@ -36,7 +39,7 @@ def read_images(img1, img2) -> tuple:
 
 # find_circle(img) finds the "best" circle in the center of the object. This is used to
 #   eventually find a rotation axis.
-def find_circle(img, display=True):
+def find_circle(img, display=False):
     print(f"Identifying key circle in {img}...")
     # BLUR_KERNEL_SIZE for medianBlur in image augmentation:
     BLUR_KERNEL_SIZE = 25
@@ -80,14 +83,14 @@ def find_circle(img, display=True):
 
 # find_center(img) finds the rotation axis (as a point) of the object in img. Returns
 #   this rotation axis point.
-def find_center(img) -> list[int]:
-    circle = find_circle(img)
+def find_center(img, display=False) -> list[int]:
+    circle = find_circle(img, display)
     return [int(circle[0]), int(circle[1])]
 
 
 # find_keypoints(img1, img2) finds the keypoints of two images to simulate finding the
 #   presence of an "object".
-def find_keypoints(img1, img2) -> tuple[list, list]:
+def find_keypoints(img1, img2, display=False) -> tuple[list, list]:
     print(f"Calculating keypoints...")
     # Reading in images and applying necessary transforms:
     gray1, gray2 = read_images(img1, img2)
@@ -97,11 +100,12 @@ def find_keypoints(img1, img2) -> tuple[list, list]:
     img1_keypoints = orb.detect(gray1, None)
     img2_keypoints = orb.detect(gray2, None)
 
-    img1_display = cv.drawKeypoints(gray1, img1_keypoints, None, color=(0, 255, 0), flags=0)
-    img2_display = cv.drawKeypoints(gray2, img2_keypoints, None, color=(0, 255, 0), flags=0)
+    if display:
+        img1_display = cv.drawKeypoints(gray1, img1_keypoints, None, color=(0, 255, 0), flags=0)
+        img2_display = cv.drawKeypoints(gray2, img2_keypoints, None, color=(0, 255, 0), flags=0)
 
-    plt.imshow(img1_display), plt.title("Initial image, processed with keypoints"), plt.show()
-    plt.imshow(img2_display), plt.title("Second image, processed with keypoints"), plt.show()
+        plt.imshow(img1_display), plt.title("Initial image, processed with keypoints"), plt.show()
+        plt.imshow(img2_display), plt.title("Second image, processed with keypoints"), plt.show()
 
     img1_keypoints = cv.KeyPoint_convert(img1_keypoints)
     img2_keypoints = cv.KeyPoint_convert(img2_keypoints)
@@ -132,11 +136,19 @@ def find_keypoint_average(keypoints) -> tuple[int, int]:
 
 # find_points_grid(x1, y1) creates a "grid" of points in a lattice, around the
 #   initial point (x1, y1) provided.
-def find_keypoints_grid(keypoints) -> np.ndarray:
+def find_keypoints_grid(img=None, keypoints=None) -> np.ndarray:
     # Setting the "spread" of the grid (in pixels):
     GRID_SPREAD = 50
 
-    x1, y1 = find_keypoint_average(keypoints)
+    if (img is None) and (keypoints is not None):
+        x1, y1 = find_keypoint_average(keypoints)
+    elif (img is not None) and (keypoints is None):
+        # circ is in the form [x, y, r]
+        circ = find_center(img)
+        x1 = circ[0]
+        y1 = circ[1]
+    else:
+        raise NotImplementedError("Both image and keypoints are None.")
 
     # Creating the grid of points:
     grid = np.array([

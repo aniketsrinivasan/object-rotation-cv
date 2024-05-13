@@ -32,7 +32,7 @@ def model_build_SAM() -> SamPredictor:
 
 # model_get_masks(img, keypoints, predictor) gets an array of masks predicted in
 #   image img using predictor, with keypoints. Returns this array of masks.
-def model_get_masks(img_path, keypoints, display=True) -> np.ndarray:
+def model_get_masks(img_path, keypoints, display=False) -> np.ndarray:
     print(f"Getting masks for {img_path}...")
     # Building predictor:
     predictor = model_build_SAM()
@@ -54,15 +54,13 @@ def model_get_masks(img_path, keypoints, display=True) -> np.ndarray:
     )
     print(f"Masks identified for {img_path}.")
 
-    if not display:
-        return masks
-
     # If display=True, then we will display this mask using show_mask:
-    plt.imshow(img)
-    show_mask(masks[0], plt.gca())
-    plt.scatter(keypoints[:, 0], keypoints[:, 1], marker="o", color="red")
-    plt.title("Object identified with mask (highlighted blue) and keypoints_grid (red)")
-    plt.show()
+    if display:
+        plt.imshow(img)
+        show_mask(masks[0], plt.gca())
+        plt.scatter(keypoints[:, 0], keypoints[:, 1], marker="o", color="red")
+        plt.title("Object identified with mask (highlighted blue) and keypoints_grid (red)")
+        plt.show()
 
     return masks
 
